@@ -1,2 +1,3 @@
 * text=auto
 *.csproj text eol=crlf
+*.asset text eol=crlf
