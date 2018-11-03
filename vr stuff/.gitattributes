@@ -1,3 +1,2 @@
 * text=false
 *.csproj text eol=crlf
-*.asset text eol=lf
