@@ -1,2 +1,2 @@
-* text=false
+* -text
 *.csproj text eol=crlf
