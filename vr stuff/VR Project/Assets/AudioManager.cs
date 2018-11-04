@@ -30,15 +30,18 @@ public class AudioManager : MonoBehaviour {
 	public void PlayLoop () {
 		sounds[0].source.Play();
 		stopLoop = false;
-
-		StartCoroutine(Loop());
+		/*if (!stopLoop) {
+			sounds[1].source.Play();
+			sounds[1].source.loop = true;
+		}*/
+		StartCoroutine("Loop");
 	}
 
 	public void ChangePitch (float slidePos) {
 		float temp = slidePos;
 
 		temp += 3.5f;
-		temp *= 5f;
+		temp *= 3.5f;
 
 		if (temp > Sound.MaxPitch) {
 			temp = Sound.MaxPitch;
@@ -53,9 +56,7 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	IEnumerator Loop () {
-		while (sounds[0].source.isPlaying) {
-			yield return new WaitForSeconds(0.16f * pitch);
-		}
+		yield return new WaitForSeconds(0.146f / pitch);
 
 		if (!stopLoop) {
 			sounds[1].source.Play();
